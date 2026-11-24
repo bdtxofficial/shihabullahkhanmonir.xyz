@@ -38,13 +38,14 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
 .dark{background:var(--n);color:white}.dark .head h2{color:white}.dark .head p{color:#c1ccdc}.timeline{max-width:880px;margin:auto;border-left:2px solid #c8a45e;padding-left:28px}.event{position:relative;background:#ffffff0a;border:1px solid #ffffff20;border-radius:13px;padding:22px;margin:0 0 16px}.event:before{content:"";position:absolute;left:-36px;top:27px;width:12px;height:12px;background:var(--g);border-radius:50%;box-shadow:0 0 0 5px #d8b66e22}.event h3{color:#f0d69b;margin:0 0 7px;font-size:19px}.event p{color:#d0d9e6;margin:0}.date{font-size:12px;color:#aebbd0;margin-bottom:5px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.num{font:700 25px Georgia;color:#ad8744}.card h3{margin:4px 0 8px}.lower{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.values{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.value{text-align:center;background:white;border:1px solid var(--line);border-radius:12px;padding:19px 12px}.value strong{display:block;color:var(--n)}.value span{font-size:13px;color:var(--muted)}.symbol{font-size:25px;color:#876321}
 .note{background:#fff8e8;border:1px solid #ead8ae;padding:14px;border-radius:9px;color:#6b552c;font-size:13px;margin-top:22px}.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}.contact .panel p{margin:5px 0;color:var(--muted)}.galleryGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.blogTeaser{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}.blogFeature{background:linear-gradient(145deg,#102544,#0b1830);color:#fff;border:1px solid #d8b66e55;border-radius:15px;padding:28px}.blogFeature .eyebrow{color:#e4c783}.blogFeature h3{font-size:clamp(22px,3vw,30px);line-height:1.35;margin:9px 0;color:#fff}.blogFeature p{color:#d4deeb;margin:0 0 16px}.blogTopics{display:grid;gap:12px}.blogTopic{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}.blogTopic h3{color:var(--n);margin:0 0 5px;font-size:17px}.blogTopic p{color:var(--muted);margin:0;font-size:14px}.blogLink{display:inline-block;background:var(--g);color:#13213a;padding:9px 15px;border-radius:7px;font-weight:800}.blogPage{max-width:900px;margin:0 auto}.blogIntro{background:#fff;border:1px solid var(--line);border-radius:15px;padding:24px}.blogIntro h3{color:var(--n);margin:0 0 8px}.blogIntro p{color:var(--muted);margin:0}.galleryItem{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 32px #0b18300a}.galleryItem a{display:grid;place-items:center;background:#e8edf4}.galleryItem img{display:block;width:auto;max-width:100%;height:auto;max-height:520px;object-fit:contain;object-position:center;background:#e8edf4}.galleryItem figcaption{padding:14px 17px;color:var(--n);font-weight:700}.emptyMedia{min-height:210px;display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(145deg,#eaf0f7,#f8f9fb);color:#68758a}.emptyMedia span{display:block;font-size:36px;color:#ad8744}.activityGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.activityCard{border:1px solid #ffffff25;border-radius:14px;padding:22px;background:#ffffff0a}.activityCard .symbol{font-size:28px;color:var(--g)}.activityCard h3{color:#f0d69b;margin:7px 0}.activityCard p{color:#d0d9e6;margin:0}.newsList{max-width:900px;margin:auto}.newsEmpty{padding:34px;text-align:center;border:1px dashed #c6ceda;border-radius:14px;background:#fff}.newsEmpty .symbol{font-size:38px}.newsEmpty h3{color:var(--n);margin:8px 0}.newsEmpty p{color:var(--muted);margin:0 0 15px}.newsEmpty a{display:inline-block;color:#17365c;font-weight:700;border-bottom:1px solid var(--g)}footer{background:#071121;color:#aeb9ca;text-align:center;padding:27px 0;font-size:14px}footer b{color:white}
-@media(max-width:850px){header{backdrop-filter:none}nav{display:none;position:absolute;top:74px;left:0;right:0;background:var(--n);padding:18px 4%;flex-direction:column}nav.open{display:flex}.menu{display:inline-block}.heroGrid,.grid2,.contact{grid-template-columns:1fr}.photo{max-width:250px}.cards{grid-template-columns:1fr 1fr}.galleryGrid{grid-template-columns:1fr 1fr}.values{grid-template-columns:1fr 1fr}}
+.navBackdrop{display:none}@media(max-width:850px){header{backdrop-filter:none;position:relative;z-index:1002}nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--n);padding:14px 4% 20px;flex-direction:column;z-index:1002;max-height:calc(100vh - 74px);overflow-y:auto;box-shadow:0 18px 35px #0005}nav.open{display:flex}.mobileNavHead{display:flex;align-items:center;justify-content:space-between;padding:4px 0 14px;margin-bottom:5px;border-bottom:1px solid #ffffff30;color:#fff;font-weight:800}.navClose{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #d8b66e88;border-radius:8px;background:transparent;color:#f2dfb7;font-size:22px;line-height:1;cursor:pointer}.navBackdrop{display:block;position:fixed;inset:0;background:#02091499;z-index:1001;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease}.navBackdrop.open{opacity:1;visibility:visible}.menu{display:inline-block}.heroGrid,.grid2,.contact{grid-template-columns:1fr}.photo{max-width:250px}.cards{grid-template-columns:1fr 1fr}.galleryGrid{grid-template-columns:1fr 1fr}.values{grid-template-columns:1fr 1fr}}@media(min-width:851px){.mobileNavHead{display:none}.navClose{display:none}}
 @media(max-width:560px){.nav{min-height:66px;flex-direction:row;flex-wrap:nowrap;gap:8px}.brand{font-size:12px;min-width:0;flex:1 1 auto}.brand small{max-width:165px;font-size:9px;line-height:1.3;letter-spacing:.08em;text-wrap:balance}.navActions{display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:8px;flex:0 0 auto;white-space:nowrap}.lang,.menu{margin:0;flex:0 0 auto}.heroGrid{padding:65px 0 82px}.photo{margin:0 auto 16px}.cards,.lower,.galleryGrid{grid-template-columns:1fr}section{padding:55px 0}.latin{font-size:20px}}
 .rtl{direction:rtl;text-align:right;font-family:system-ui,"Noto Nastaliq Urdu","Noto Naskh Arabic",Tahoma,serif}.rtl .heroGrid,.rtl .grid2,.rtl .contact,.rtl .blogTeaser{direction:rtl}.rtl .slogan{border-left:0;border-right:3px solid var(--g);padding-left:0;padding-right:15px}.rtl .timeline{border-left:0;border-right:2px solid #c8a45e;padding-left:0;padding-right:28px}.rtl .event:before{left:auto;right:-36px}.rtl .note{direction:rtl}.rtl nav{direction:rtl}.rtl .blogFeature,.rtl .blogTopic,.rtl .panel,.rtl .card,.rtl .fact,.rtl .activityCard,.rtl .contact,.rtl .article-card{text-align:right}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}</style></head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="#home"><span data-bn="শিহাব উল্লাহ-খান মনির" data-ur="شہاب اللہ خان منیر" data-en="SHIHABULLAH KHAN MONIR">শিহাব উল্লাহ-খান মনির</span><small data-bn="অফিশিয়াল রাজনৈতিক ও পেশাগত প্রোফাইল" data-ur="سرکاری سیاسی اور پیشہ ورانہ پروفائل" data-en="OFFICIAL POLITICAL & PROFESSIONAL PROFILE">অফিশিয়াল রাজনৈতিক ও পেশাগত প্রোফাইল</small></a>
-<nav id="nav"><a href="#home" data-bn="হোম" data-ur="ہوم" data-en="Home">হোম</a><a href="#bio" data-bn="জীবনী" data-ur="سوانح حیات" data-en="Biography">জীবনী</a><a href="#journey" data-bn="রাজনৈতিক পথচলা" data-ur="سیاسی سفر" data-en="Political Journey">রাজনৈতিক পথচলা</a><a href="#work" data-bn="উদ্যোগ ও পেশা" data-ur="کاروبار اور پیشہ" data-en="Initiatives & Career">উদ্যোগ ও পেশা</a><a href="#gallery" data-bn="ফটো গ্যালারি" data-ur="تصویری گیلری" data-en="Photo Gallery">ফটো গ্যালারি</a><a href="#blog" data-bn="মতামত ও নিবন্ধ" data-ur="آراء اور مضامین" data-en="Articles & Opinions">মতামত ও নিবন্ধ</a><a href="#activities" data-bn="কার্যক্রম" data-ur="سرگرمیاں" data-en="Activities">কার্যক্রম</a><a href="#news" data-bn="সংবাদ ও প্রেস" data-ur="خبریں اور پریس" data-en="News & Press">সংবাদ ও প্রেস</a><a href="#values" data-bn="দৃষ্টিভঙ্গি" data-ur="نقطۂ نظر" data-en="Values">দৃষ্টিভঙ্গি</a><a href="#contact" data-bn="যোগাযোগ" data-ur="رابطہ" data-en="Contact">যোগাযোগ</a></nav>
+<nav id="nav"><div class="mobileNavHead"><span data-bn="মেনু" data-ur="مینو" data-en="Menu">মেনু</span><button class="navClose" id="navClose" type="button" aria-label="মেনু বন্ধ করুন">✕</button></div><a href="#home" data-bn="হোম" data-ur="ہوم" data-en="Home">হোম</a><a href="#bio" data-bn="জীবনী" data-ur="سوانح حیات" data-en="Biography">জীবনী</a><a href="#journey" data-bn="রাজনৈতিক পথচলা" data-ur="سیاسی سفر" data-en="Political Journey">রাজনৈতিক পথচলা</a><a href="#work" data-bn="উদ্যোগ ও পেশা" data-ur="کاروبار اور پیشہ" data-en="Initiatives & Career">উদ্যোগ ও পেশা</a><a href="#gallery" data-bn="ফটো গ্যালারি" data-ur="تصویری گیلری" data-en="Photo Gallery">ফটো গ্যালারি</a><a href="#blog" data-bn="মতামত ও নিবন্ধ" data-ur="آراء اور مضامین" data-en="Articles & Opinions">মতামত ও নিবন্ধ</a><a href="#activities" data-bn="কার্যক্রম" data-ur="سرگرمیاں" data-en="Activities">কার্যক্রম</a><a href="#news" data-bn="সংবাদ ও প্রেস" data-ur="خبریں اور پریس" data-en="News & Press">সংবাদ ও প্রেস</a><a href="#values" data-bn="দৃষ্টিভঙ্গি" data-ur="نقطۂ نظر" data-en="Values">দৃষ্টিভঙ্গি</a><a href="#contact" data-bn="যোগাযোগ" data-ur="رابطہ" data-en="Contact">যোগাযোগ</a></nav>
 <div class="navActions"><select class="lang" id="lang" aria-label="ভাষা নির্বাচন করুন"><option value="bn">বাংলা</option><option value="en">English</option><option value="ur">اردو</option></select><button class="menu" id="menu" aria-label="মেনু খুলুন">☰</button></div></div></header>
+<div class="navBackdrop" id="navBackdrop" aria-hidden="true"></div>
 <main>
 <section class="hero" id="home"><div class="wrap heroGrid"><div><div class="eyebrow" data-bn="বাংলাদেশের নতুন প্রজন্মের রাজনৈতিক ও সামাজিক কর্মী" data-ur="بنگلہ دیش کی نئی نسل کے سیاسی اور سماجی کارکن" data-en="A new-generation political and social activist of Bangladesh">বাংলাদেশের নতুন প্রজন্মের রাজনৈতিক ও সামাজিক কর্মী</div>
 <h1 data-bn="শিহাব উল্লাহ-খান মনির" data-ur="شہاب اللہ خان منیر" data-en="Shihab Ullah-Khan Monir">শিহাব উল্লাহ-খান মনির</h1><div class="latin" data-bn="Shihab Ullah-Khan Monir" data-ur="Shihab Ullah-Khan Monir" data-en="Shihab Ullah-Khan Monir">Shihab Ullah-Khan Monir</div>
@@ -80,6 +81,9 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
   const languageButton = document.getElementById("lang");
   const menuButton = document.getElementById("menu");
   const navigation = document.getElementById("nav");
+  const closeMenuButton = document.getElementById("navClose");
+  const navigationBackdrop = document.getElementById("navBackdrop");
+  let menuHistoryOpen = false;
   let currentLanguage = "bn";
 
   function applyLanguage(language) {
@@ -101,8 +105,48 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
   }
 
   languageButton.addEventListener("change", () => applyLanguage(languageButton.value));
-  menuButton.addEventListener("click", () => navigation.classList.toggle("open"));
-  navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => navigation.classList.remove("open")));
+  function closeNavigation(updateHistory = true) {
+    const wasOpen = navigation.classList.contains("open");
+    navigation.classList.remove("open");
+    navigationBackdrop.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "মেনু খুলুন");
+    if (wasOpen && updateHistory && menuHistoryOpen) {
+      menuHistoryOpen = false;
+      history.back();
+    } else if (!wasOpen) {
+      menuHistoryOpen = false;
+    }
+  }
+  function openNavigation() {
+    if (navigation.classList.contains("open")) {
+      closeNavigation();
+      return;
+    }
+    navigation.classList.add("open");
+    navigationBackdrop.classList.add("open");
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "মেনু বন্ধ করুন");
+    history.pushState({ ...(history.state || {}), mobileNavigationOpen: true }, "", location.href);
+    menuHistoryOpen = true;
+  }
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.addEventListener("click", openNavigation);
+  closeMenuButton.addEventListener("click", () => closeNavigation());
+  navigationBackdrop.addEventListener("click", () => closeNavigation());
+  navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeNavigation(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navigation.classList.contains("open")) {
+      event.preventDefault();
+      closeNavigation();
+    }
+  });
+  window.addEventListener("popstate", () => {
+    if (navigation.classList.contains("open")) {
+      menuHistoryOpen = false;
+      closeNavigation(false);
+    }
+  });
   document.getElementById("year").textContent = new Date().getFullYear();
   let savedLanguage = "bn";
   try { savedLanguage = localStorage.getItem("site-language") || "bn"; } catch (error) {}
