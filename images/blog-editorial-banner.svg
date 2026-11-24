@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-<title id="title">মতামত ও নিবন্ধ — Opinions &amp; Articles</title><desc id="desc">নেভি ব্লু ও গোল্ডেন সম্পাদকীয় ব্যানার, গ্লোব, ফাউন্টেন পেন ও নোটবুকসহ।</desc>
+<title id="title">মতামত ও নিবন্ধ — Opinions &amp; Articles — آراء اور مضامین</title><desc id="desc">নেভি ব্লু ও গোল্ডেন সম্পাদকীয় ব্যানার, গ্লোব, ফাউন্টেন পেন ও নোটবুকসহ।</desc>
 <defs>
  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07152d"/><stop offset=".55" stop-color="#102d55"/><stop offset="1" stop-color="#061329"/></linearGradient>
  <radialGradient id="glow"><stop stop-color="#244b78" stop-opacity=".9"/><stop offset="1" stop-color="#10213d" stop-opacity="0"/></radialGradient>
@@ -47,6 +47,7 @@
 </g>
 <text x="160" y="610" font-family="Georgia,serif" font-size="48" letter-spacing="7" font-weight="700" fill="url(#gold)">OPINIONS &amp; ARTICLES</text>
 <path d="M160 640H1010" stroke="#d8b66e" stroke-opacity=".6" stroke-width="2"/>
+<g font-family="system-ui,'Noto Nastaliq Urdu',Tahoma,serif" fill="#f3e7c9" text-anchor="start"><text x="160" y="710" font-size="42" direction="rtl">آراء اور مضامین</text><text x="160" y="765" font-size="29" direction="rtl">فکر، تجزیہ اور عصری خیالات</text></g>
 <g font-family="Arial,sans-serif" font-size="26" fill="#f3e7c9" text-anchor="end"><text x="1515" y="858">shihabullahkhanmonir.xyz</text></g>
 <circle cx="1195" cy="840" r="17" fill="none" stroke="url(#gold)" stroke-width="3"/><path d="M1178 840H1212M1195 823V857" stroke="url(#gold)" stroke-width="2"/>
 </svg>
