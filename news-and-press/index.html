@@ -24,101 +24,188 @@
 <script>(function(){const s=document.getElementById("language"),a=["bn","en","ur","ar"];function set(l){const v=a.includes(l)?l:"bn";document.title=({bn:"সংবাদ ও প্রেস রিলিজ | Shihab Ullah-Khan Monir",en:"News & Press Releases | Shihab Ullah-Khan Monir",ur:"خبریں اور پریس ریلیز | شہاب اللہ خان منیر"})[v];document.documentElement.lang=v;document.documentElement.dir=(v==="ur"||v==="ar")?"rtl":"ltr";document.body.classList.toggle("rtl",v==="ur"||v==="ar");document.querySelectorAll("[data-bn]").forEach(e=>{const t=(e.getAttribute("data-"+v)||e.getAttribute("data-bn"));if(t!==null)e.textContent=t});s.value=v;try{localStorage.setItem("site-language",v)}catch(e){}}let initial="bn";try{initial=localStorage.getItem("site-language")||"bn"}catch(e){}set(initial);s.addEventListener("change",()=>set(s.value))})();</script>
 <div id="google_translate_element" aria-hidden="true"></div>
 <script>
-(function(){
+(function () {
   "use strict";
-  var supported=["bn","en","ur","ar"];
-  var selectors=Array.from(document.querySelectorAll("select#lang,select#language"));
-  var labels={bn:"বাংলা (Bangla)",en:"English",ur:"اردو (Urdu)",ar:"العربية (Arabic)"};
-  var current="bn";
-  function normalize(value){return supported.indexOf(value)>=0?value:"bn";}
-  function setDirection(lang){
-    document.documentElement.lang=lang;
-    document.documentElement.dir=(lang==="ur"||lang==="ar")?"rtl":"ltr";
-    if(document.body)document.body.classList.toggle("rtl",lang==="ur"||lang==="ar");
-  }
-  function restoreSourceText(){
-    document.querySelectorAll("[data-bn]").forEach(function(el){
-      var source=el.getAttribute("data-bn");
-      if(source===null)return;
-      var node=Array.from(el.childNodes).find(function(n){return n.nodeType===Node.TEXT_NODE;});
-      if(node)node.nodeValue=source;
-      else if(!el.children.length)el.textContent=source;
-    });
-  }
-  function lockSelectors(){
-    selectors.forEach(function(select){
-      select.classList.add("notranslate");
-      select.setAttribute("translate","no");
-      select.setAttribute("aria-label","Language / ভাষা / زبان / اللغة");
-      Array.from(select.options).forEach(function(option){
-        option.setAttribute("translate","no");
-        option.classList.add("notranslate");
-        var code=option.value;
-        if(labels[code]&&option.textContent!==labels[code])option.textContent=labels[code];
-      });
-      select.value=current;
-    });
-  }
-  function translateWithGoogle(lang){
-    var tries=0;
-    var timer=window.setInterval(function(){
-      var combo=document.querySelector(".goog-te-combo");
-      if(combo){
-        combo.value=lang==="bn"?"":lang;
-        combo.dispatchEvent(new Event("change",{bubbles:true}));
-        window.clearInterval(timer);
-      }else if(++tries>=60){
-        window.clearInterval(timer);
-      }
-    },250);
-  }
-  function chooseLanguage(value){
-    current=normalize(value);
-    setDirection(current);
-    try{
-      localStorage.setItem("site-language",current);
-      localStorage.setItem("ward4-page-language",current);
-    }catch(error){}
-    lockSelectors();
-    translateWithGoogle(current);
-  }
-  // Restore Bengali source strings before the single translation engine runs.
-  restoreSourceText();
-  try{current=normalize(localStorage.getItem("site-language")||localStorage.getItem("ward4-page-language")||"bn");}catch(error){current="bn";}
-  setDirection(current);
-  lockSelectors();
-  // Capture before older page-specific handlers so two language engines cannot race.
-  document.addEventListener("change",function(event){
-    if(event.target&&selectors.indexOf(event.target)>=0){
-      event.stopImmediatePropagation();
-      event.preventDefault();
-      chooseLanguage(event.target.value);
-    }
-  },true);
-  window.googleTranslateElementInit=function(){
-    new google.translate.TranslateElement({
-      pageLanguage:"bn",
-      includedLanguages:"en,ur,ar",
-      autoDisplay:false,
-      multilanguagePage:true
-    },"google_translate_element");
-    translateWithGoogle(current);
+
+  var SUPPORTED = ["bn", "en", "ur", "ar"];
+  var LABELS = {
+    bn: "বাংলা (Bangla)",
+    en: "English",
+    ur: "اردو (Urdu)",
+    ar: "العربية (Arabic)"
   };
-  var script=document.createElement("script");
-  script.src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-  script.async=true;
-  document.head.appendChild(script);
-  // Reassert native option labels if a browser extension or translator mutates them.
-  if(window.MutationObserver){
-    selectors.forEach(function(select){
-      new MutationObserver(function(){lockSelectors();}).observe(select,{childList:true,subtree:true,characterData:true});
+  var selectors = Array.prototype.slice.call(
+    document.querySelectorAll("select#lang, select#language")
+  );
+  var currentLang = "bn";
+  var translationTimer = null;
+  var requestNumber = 0;
+
+  function normalizeLanguage(value) {
+    return SUPPORTED.indexOf(value) !== -1 ? value : "bn";
+  }
+
+  function setDirection(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === "ur" || lang === "ar") ? "rtl" : "ltr";
+    if (document.body) {
+      document.body.classList.toggle("rtl", lang === "ur" || lang === "ar");
+    }
+  }
+
+  function protectLanguageSelectors() {
+    selectors.forEach(function (select) {
+      select.classList.add("notranslate");
+      select.setAttribute("translate", "no");
+      select.setAttribute("aria-label", "Language / ভাষা / زبان / اللغة");
+      Array.prototype.forEach.call(select.options, function (option) {
+        option.classList.add("notranslate");
+        option.setAttribute("translate", "no");
+        var label = LABELS[option.value];
+        if (label) option.textContent = label;
+      });
+      select.value = currentLang;
     });
   }
-  document.querySelectorAll("[data-go-back]").forEach(function(button){
-    button.addEventListener("click",function(){
-      if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){history.back();}
-      else{location.href="/";}
+
+  // Restore Bengali source strings for elements that have an authored data-bn value.
+  function restoreAuthoredSourceText() {
+    document.querySelectorAll("[data-bn]").forEach(function (element) {
+      var source = element.getAttribute("data-bn");
+      if (source === null) return;
+      var textNode = Array.prototype.find.call(element.childNodes, function (node) {
+        return node.nodeType === Node.TEXT_NODE;
+      });
+      if (textNode) {
+        textNode.nodeValue = source;
+      } else if (!element.children.length) {
+        element.textContent = source;
+      }
+    });
+  }
+
+  function dispatchGoogleLanguage(lang, token) {
+    if (token !== requestNumber) return;
+    var combo = document.querySelector(".goog-te-combo");
+    if (!combo) return false;
+
+    // Google Translate's empty value means return to the page's source language (Bengali).
+    combo.value = lang === "bn" ? "" : lang;
+    combo.dispatchEvent(new Event("change", { bubbles: true }));
+    return true;
+  }
+
+  function applyGoogleLanguage(lang) {
+    requestNumber += 1;
+    var token = requestNumber;
+
+    if (translationTimer !== null) {
+      window.clearInterval(translationTimer);
+      translationTimer = null;
+    }
+
+    if (dispatchGoogleLanguage(lang, token)) return;
+
+    var attempts = 0;
+    translationTimer = window.setInterval(function () {
+      if (token !== requestNumber) {
+        window.clearInterval(translationTimer);
+        translationTimer = null;
+        return;
+      }
+      attempts += 1;
+      if (dispatchGoogleLanguage(lang, token) || attempts >= 120) {
+        window.clearInterval(translationTimer);
+        translationTimer = null;
+      }
+    }, 150);
+  }
+
+  // This is the only function allowed to change the active site language.
+  function applyLanguage(lang) {
+    currentLang = normalizeLanguage(lang);
+
+    try {
+      localStorage.setItem("siteLang", currentLang);
+      // Keep legacy keys in sync for older page code and bookmarks.
+      localStorage.setItem("site-language", currentLang);
+      localStorage.setItem("ward4-page-language", currentLang);
+    } catch (error) {}
+
+    setDirection(currentLang);
+    protectLanguageSelectors();
+    applyGoogleLanguage(currentLang);
+  }
+
+  // Read the new value before changing any selector or touching saved state.
+  document.addEventListener("change", function (event) {
+    if (selectors.indexOf(event.target) === -1) return;
+    var selectedLang = normalizeLanguage(event.target.value);
+    event.stopImmediatePropagation();
+    event.preventDefault();
+    applyLanguage(selectedLang);
+  }, true);
+
+  // Keep the native language names intact even if a translation process mutates nearby DOM.
+  if (window.MutationObserver) {
+    selectors.forEach(function (select) {
+      new MutationObserver(protectLanguageSelectors).observe(select, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  document.querySelectorAll("[data-go-back]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (document.referrer && history.length > 1) {
+        try {
+          if (new URL(document.referrer).origin === location.origin) {
+            history.back();
+            return;
+          }
+        } catch (error) {}
+      }
+      location.href = "/";
     });
   });
+
+  // Load the saved canonical state first; migrate older saved keys only if needed.
+  var initialLang = "bn";
+  try {
+    initialLang = localStorage.getItem("siteLang") ||
+      localStorage.getItem("site-language") ||
+      localStorage.getItem("ward4-page-language") ||
+      "bn";
+  } catch (error) {}
+
+  // Older page-specific scripts run earlier in the document. Restore source strings
+  // before initializing the single translation engine used by this controller.
+  restoreAuthoredSourceText();
+  currentLang = normalizeLanguage(initialLang);
+  setDirection(currentLang);
+  protectLanguageSelectors();
+
+  window.googleTranslateElementInit = function () {
+    if (window.__siteTranslateInitialized) return;
+    window.__siteTranslateInitialized = true;
+    new google.translate.TranslateElement({
+      pageLanguage: "bn",
+      includedLanguages: "en,ur,ar",
+      autoDisplay: false,
+      multilanguagePage: true
+    }, "google_translate_element");
+    applyGoogleLanguage(currentLang);
+  };
+
+  var googleScript = document.createElement("script");
+  googleScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  googleScript.async = true;
+  document.head.appendChild(googleScript);
+
+  // Synchronize all selectors and start translation from exactly the same language code.
+  applyLanguage(currentLang);
 })();
-</script></body></html>
+</script>
+</body>
