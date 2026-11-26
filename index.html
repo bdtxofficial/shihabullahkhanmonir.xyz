@@ -185,7 +185,7 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
 <body>
 <header><div class="wrap nav"><a class="brand" href="#home"><span data-bn="শিহাব উল্লাহ-খান মনির" data-ur="شہاب اللہ خان منیر" data-en="SHIHABULLAH KHAN MONIR">শিহাব উল্লাহ-খান মনির</span><small data-bn="অফিশিয়াল রাজনৈতিক ও পেশাগত প্রোফাইল" data-ur="سرکاری سیاسی اور پیشہ ورانہ پروفائل" data-en="OFFICIAL POLITICAL & PROFESSIONAL PROFILE">অফিশিয়াল রাজনৈতিক ও পেশাগত প্রোফাইল</small></a>
 <nav id="nav"><div class="mobileNavHead"><span data-bn="মেনু" data-ur="مینو" data-en="Menu">মেনু</span><button class="navClose" id="navClose" type="button" aria-label="মেনু বন্ধ করুন">✕</button></div><a href="#home" data-bn="হোম" data-ur="ہوم" data-en="Home">হোম</a><a href="#bio" data-bn="জীবনী" data-ur="سوانح حیات" data-en="Biography">জীবনী</a><a href="/ward-4-manifesto/" data-bn="৪ নং ওয়ার্ড উন্নয়ন পরিকল্পনা" data-ur="وارڈ ۴ کا ترقیاتی منصوبہ" data-en="Ward 4 Development Plan">৪ নং ওয়ার্ড উন্নয়ন পরিকল্পনা</a><a href="#journey" data-bn="রাজনৈতিক পথচলা" data-ur="سیاسی سفر" data-en="Political Journey">রাজনৈতিক পথচলা</a><a href="#work" data-bn="উদ্যোগ ও পেশা" data-ur="کاروبار اور پیشہ" data-en="Initiatives & Career">উদ্যোগ ও পেশা</a><a href="#gallery" data-bn="ফটো গ্যালারি" data-ur="تصویری گیلری" data-en="Photo Gallery">ফটো গ্যালারি</a><a href="/blog/" data-bn="মতামত ও নিবন্ধ" data-ur="آراء اور مضامین" data-en="Articles & Opinions">মতামত ও নিবন্ধ</a><a href="#activities" data-bn="কার্যক্রম" data-ur="سرگرمیاں" data-en="Activities">কার্যক্রম</a><a href="/news-and-press/" data-bn="সংবাদ ও প্রেস" data-ur="خبریں اور پریس" data-en="News & Press">সংবাদ ও প্রেস</a><a href="#values" data-bn="দৃষ্টিভঙ্গি" data-ur="نقطۂ نظر" data-en="Values">দৃষ্টিভঙ্গি</a><a href="#donation" data-bn="অনুদান / সহযোগিতা" data-ur="عطیہ / تعاون" data-en="Donation / Support">অনুদান / সহযোগিতা</a><a href="#contact" data-bn="যোগাযোগ" data-ur="رابطہ" data-en="Contact">যোগাযোগ</a></nav>
-<div class="navActions"><select class="lang" id="lang" aria-label="ভাষা নির্বাচন করুন"><option value="bn">বাংলা</option><option value="en">English</option><option value="ur">اردو</option><option value="ar">العربية</option></select><button class="menu" id="menu" aria-label="মেনু খুলুন">☰</button></div></div></header>
+<div class="navActions"><select class="lang notranslate" id="lang" aria-label="ভাষা নির্বাচন করুন" translate="no"><option value="bn" translate="no" class="notranslate">বাংলা (Bangla)</option><option value="en" translate="no" class="notranslate">English</option><option value="ur" translate="no" class="notranslate">اردو (Urdu)</option><option value="ar" translate="no" class="notranslate">العربية (Arabic)</option></select><button class="menu" id="menu" aria-label="মেনু খুলুন">☰</button></div></div></header>
 <div class="navBackdrop" id="navBackdrop" aria-hidden="true"></div>
 <main>
 <section class="hero" id="home"><div class="wrap heroGrid"><div><div class="heroIdentity">
@@ -392,4 +392,103 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
     });
   });
 })();
-</script><div id="google_translate_element" aria-hidden="true"></div><script>(function(){window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'bn',includedLanguages:'en,ur,ar',autoDisplay:false},'google_translate_element');};var script=document.createElement('script');script.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';script.async=true;document.head.appendChild(script);function applyGoogleLanguage(lang){var attempts=0;var timer=setInterval(function(){var combo=document.querySelector('.goog-te-combo');if(combo){combo.value=lang==='bn'?'':lang;combo.dispatchEvent(new Event('change',{bubbles:true}));clearInterval(timer);}if(++attempts>40)clearInterval(timer);},250);}document.addEventListener('change',function(event){if(event.target&&['lang','language'].includes(event.target.id)){var lang=event.target.value;setTimeout(function(){applyGoogleLanguage(lang);},100);}});try{var savedLanguage=localStorage.getItem('site-language');if(savedLanguage&&savedLanguage!=='bn')setTimeout(function(){applyGoogleLanguage(savedLanguage);},1200);}catch(e){}document.querySelectorAll('[data-go-back]').forEach(function(button){button.addEventListener('click',function(){if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){history.back();}else{location.href='/';}});});})();</script></body></html>
+</script><div id="google_translate_element" aria-hidden="true"></div>
+<script>
+(function(){
+  "use strict";
+  var supported=["bn","en","ur","ar"];
+  var selectors=Array.from(document.querySelectorAll("select#lang,select#language"));
+  var labels={bn:"বাংলা (Bangla)",en:"English",ur:"اردو (Urdu)",ar:"العربية (Arabic)"};
+  var current="bn";
+  function normalize(value){return supported.indexOf(value)>=0?value:"bn";}
+  function setDirection(lang){
+    document.documentElement.lang=lang;
+    document.documentElement.dir=(lang==="ur"||lang==="ar")?"rtl":"ltr";
+    if(document.body)document.body.classList.toggle("rtl",lang==="ur"||lang==="ar");
+  }
+  function restoreSourceText(){
+    document.querySelectorAll("[data-bn]").forEach(function(el){
+      var source=el.getAttribute("data-bn");
+      if(source===null)return;
+      var node=Array.from(el.childNodes).find(function(n){return n.nodeType===Node.TEXT_NODE;});
+      if(node)node.nodeValue=source;
+      else if(!el.children.length)el.textContent=source;
+    });
+  }
+  function lockSelectors(){
+    selectors.forEach(function(select){
+      select.classList.add("notranslate");
+      select.setAttribute("translate","no");
+      select.setAttribute("aria-label","Language / ভাষা / زبان / اللغة");
+      Array.from(select.options).forEach(function(option){
+        option.setAttribute("translate","no");
+        option.classList.add("notranslate");
+        var code=option.value;
+        if(labels[code])option.textContent=labels[code];
+      });
+      select.value=current;
+    });
+  }
+  function translateWithGoogle(lang){
+    var tries=0;
+    var timer=window.setInterval(function(){
+      var combo=document.querySelector(".goog-te-combo");
+      if(combo){
+        combo.value=lang==="bn"?"":lang;
+        combo.dispatchEvent(new Event("change",{bubbles:true}));
+        window.clearInterval(timer);
+      }else if(++tries>=60){
+        window.clearInterval(timer);
+      }
+    },250);
+  }
+  function chooseLanguage(value){
+    current=normalize(value);
+    setDirection(current);
+    try{
+      localStorage.setItem("site-language",current);
+      localStorage.setItem("ward4-page-language",current);
+    }catch(error){}
+    lockSelectors();
+    translateWithGoogle(current);
+  }
+  // Restore Bengali source strings before the single translation engine runs.
+  restoreSourceText();
+  try{current=normalize(localStorage.getItem("site-language")||localStorage.getItem("ward4-page-language")||"bn");}catch(error){current="bn";}
+  setDirection(current);
+  lockSelectors();
+  // Capture before older page-specific handlers so two language engines cannot race.
+  document.addEventListener("change",function(event){
+    if(event.target&&selectors.indexOf(event.target)>=0){
+      event.stopImmediatePropagation();
+      event.preventDefault();
+      chooseLanguage(event.target.value);
+    }
+  },true);
+  window.googleTranslateElementInit=function(){
+    new google.translate.TranslateElement({
+      pageLanguage:"bn",
+      includedLanguages:"en,ur,ar",
+      autoDisplay:false,
+      multilanguagePage:true
+    },"google_translate_element");
+    translateWithGoogle(current);
+  };
+  var script=document.createElement("script");
+  script.src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  script.async=true;
+  document.head.appendChild(script);
+  // Reassert native option labels if a browser extension or translator mutates them.
+  if(window.MutationObserver){
+    selectors.forEach(function(select){
+      new MutationObserver(function(){lockSelectors();}).observe(select,{childList:true,subtree:true,characterData:true});
+    });
+  }
+  document.querySelectorAll("[data-go-back]").forEach(function(button){
+    button.addEventListener("click",function(){
+      if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){history.back();}
+      else{location.href="/";}
+    });
+  });
+})();
+</script></body></html>
