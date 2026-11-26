@@ -286,8 +286,8 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
   function applyLanguage(language) {
     currentLanguage = ["bn","en","ur","ar"].includes(language) ? language : "bn";
     document.documentElement.lang = currentLanguage;
-    document.documentElement.dir = currentLanguage === "ur" ? "rtl" : "ltr";
-    document.body.classList.toggle("rtl", currentLanguage === "ur");
+    document.documentElement.dir = (currentLanguage === "ur" || currentLanguage === "ar") ? "rtl" : "ltr";
+    document.body.classList.toggle("rtl", currentLanguage === "ur" || currentLanguage === "ar");
     document.querySelectorAll("[data-bn]").forEach((element) => {
       const translatedText = element.getAttribute("data-" + currentLanguage);
       if (translatedText !== null) {
