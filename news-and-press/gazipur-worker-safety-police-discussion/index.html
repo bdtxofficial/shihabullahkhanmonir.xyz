@@ -68,7 +68,7 @@
         option.classList.add("notranslate");
         option.setAttribute("translate", "no");
         var label = LABELS[option.value];
-        if (label) option.textContent = label;
+        if (label && option.textContent !== label) option.textContent = label;
       });
       select.value = currentLang;
     });
