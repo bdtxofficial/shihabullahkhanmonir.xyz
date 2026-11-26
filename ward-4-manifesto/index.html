@@ -63,6 +63,7 @@ footer{background:#071121;color:#bac5d5;text-align:center;padding:24px 12px;font
  const allowed=["bn","en","ur"];
  function applyLanguage(lang){
   const chosen=allowed.includes(lang)?lang:"bn";
+  document.title=({bn:"৪নং ওয়ার্ড কাউন্সিলর প্রার্থী | শিহাব উল্লাহ-খান মনির",en:"Ward No. 4 Councillor Candidate | Shihab Ullah-Khan Monir",ur:"وارڈ نمبر ۴ کے کونسلر امیدوار | شہاب اللہ خان منیر"})[chosen];
   document.documentElement.lang=chosen;
   document.documentElement.dir=chosen==="ur"?"rtl":"ltr";
   document.body.classList.toggle("rtl",chosen==="ur");
