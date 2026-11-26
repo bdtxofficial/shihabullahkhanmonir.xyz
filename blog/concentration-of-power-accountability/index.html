@@ -14,101 +14,188 @@
 <p data-bn="নির্বাচনী ব্যবস্থার বিশ্বাসযোগ্যতা, বাকস্বাধীনতা, আইনের শাসন এবং নাগরিকের মৌলিক অধিকারের প্রশ্নে যে ঘাটতি ও ক্ষোভ সমাজে জমা হয়েছে, তা একটি সুস্থ গণতন্ত্রের জন্য বড় বাধা বলে আমি মনে করি। উন্নয়নের বয়ানের আড়ালে রাজনৈতিক জবাবদিহি ও গণতান্ত্রিক চর্চা দুর্বল হয়ে পড়লে জনমনে অসন্তোষ বাড়তে বাধ্য।" data-ur="میرا خیال ہے کہ انتخابی نظام کی ساکھ، آزادیٔ اظہار، قانون کی حکمرانی اور شہریوں کے بنیادی حقوق کے حوالے سے معاشرے میں جمع ہونے والی محرومیاں اور ناراضی صحت مند جمہوریت کی راہ میں بڑی رکاوٹ ہیں۔ اگر ترقی کے بیانیے کی آڑ میں سیاسی جواب دہی اور جمہوری عمل کمزور ہوں تو عوامی بے اطمینانی بڑھنا لازمی ہے۔" data-en="I believe the shortcomings and public frustration surrounding the credibility of the electoral system, freedom of expression, the rule of law and citizens’ fundamental rights pose major obstacles to a healthy democracy. When political accountability and democratic practices weaken behind a narrative of development, public dissatisfaction is bound to grow.">নির্বাচনী ব্যবস্থার বিশ্বাসযোগ্যতা, বাকস্বাধীনতা, আইনের শাসন এবং নাগরিকের মৌলিক অধিকারের প্রশ্নে যে ঘাটতি ও ক্ষোভ সমাজে জমা হয়েছে, তা একটি সুস্থ গণতন্ত্রের জন্য বড় বাধা বলে আমি মনে করি। উন্নয়নের বয়ানের আড়ালে রাজনৈতিক জবাবদিহি ও গণতান্ত্রিক চর্চা দুর্বল হয়ে পড়লে জনমনে অসন্তোষ বাড়তে বাধ্য।</p>
 <p data-bn="আমি বিশ্বাস করি, বাংলাদেশের রাজনীতিতে আর কোনো একক কর্তৃত্ব বা জবাবদিহিহীন ক্ষমতার চর্চা থাকা উচিত নয়—বরং প্রয়োজন স্বচ্ছতা, আইনের শাসন এবং জনগণের প্রকৃত প্রতিনিধিত্ব নিশ্চিত করা।" data-ur="میرا یقین ہے کہ بنگلہ دیش کی سیاست میں کسی ایک فرد یا قوت کی اجارہ داری اور بے جواب دہ اقتدار کی گنجائش نہیں ہونی چاہیے؛ اس کے بجائے شفافیت، قانون کی حکمرانی اور عوام کی حقیقی نمائندگی یقینی بنانا ضروری ہے۔" data-en="I believe Bangladesh’s politics must not return to one-person dominance or the exercise of power without accountability. What is needed instead is transparency, the rule of law and genuine representation of the people.">আমি বিশ্বাস করি, বাংলাদেশের রাজনীতিতে আর কোনো একক কর্তৃত্ব বা জবাবদিহিহীন ক্ষমতার চর্চা থাকা উচিত নয়—বরং প্রয়োজন স্বচ্ছতা, আইনের শাসন এবং জনগণের প্রকৃত প্রতিনিধিত্ব নিশ্চিত করা।</p></article></main><footer>© <b>Shihab Ullah-Khan Monir</b> · <a href="../" data-bn="সব নিবন্ধ দেখুন" data-ur="تمام مضامین دیکھیں" data-en="All articles">সব নিবন্ধ দেখুন</a></footer><script>(()=>{const b=document.getElementById("lang");let l="bn";function setLang(n){l=["bn","en","ur","ar"].includes(n)?n:"bn";document.documentElement.lang=l;document.documentElement.dir=(l==="ur"||l==="ar")?"rtl":"ltr";document.body.classList.toggle("rtl",l==="ur"||l==="ar");document.querySelectorAll("[data-bn]").forEach(e=>e.innerHTML=(e.getAttribute("data-"+l)||e.getAttribute("data-bn")));b.value=l;try{localStorage.setItem("site-language",l)}catch(e){}}b.addEventListener("change",()=>setLang(b.value));let saved="bn";try{saved=localStorage.getItem("site-language")||"bn"}catch(e){}setLang(saved);})();</script><div id="google_translate_element" aria-hidden="true"></div>
 <script>
-(function(){
+(function () {
   "use strict";
-  var supported=["bn","en","ur","ar"];
-  var selectors=Array.from(document.querySelectorAll("select#lang,select#language"));
-  var labels={bn:"বাংলা (Bangla)",en:"English",ur:"اردو (Urdu)",ar:"العربية (Arabic)"};
-  var current="bn";
-  function normalize(value){return supported.indexOf(value)>=0?value:"bn";}
-  function setDirection(lang){
-    document.documentElement.lang=lang;
-    document.documentElement.dir=(lang==="ur"||lang==="ar")?"rtl":"ltr";
-    if(document.body)document.body.classList.toggle("rtl",lang==="ur"||lang==="ar");
-  }
-  function restoreSourceText(){
-    document.querySelectorAll("[data-bn]").forEach(function(el){
-      var source=el.getAttribute("data-bn");
-      if(source===null)return;
-      var node=Array.from(el.childNodes).find(function(n){return n.nodeType===Node.TEXT_NODE;});
-      if(node)node.nodeValue=source;
-      else if(!el.children.length)el.textContent=source;
-    });
-  }
-  function lockSelectors(){
-    selectors.forEach(function(select){
-      select.classList.add("notranslate");
-      select.setAttribute("translate","no");
-      select.setAttribute("aria-label","Language / ভাষা / زبان / اللغة");
-      Array.from(select.options).forEach(function(option){
-        option.setAttribute("translate","no");
-        option.classList.add("notranslate");
-        var code=option.value;
-        if(labels[code]&&option.textContent!==labels[code])option.textContent=labels[code];
-      });
-      select.value=current;
-    });
-  }
-  function translateWithGoogle(lang){
-    var tries=0;
-    var timer=window.setInterval(function(){
-      var combo=document.querySelector(".goog-te-combo");
-      if(combo){
-        combo.value=lang==="bn"?"":lang;
-        combo.dispatchEvent(new Event("change",{bubbles:true}));
-        window.clearInterval(timer);
-      }else if(++tries>=60){
-        window.clearInterval(timer);
-      }
-    },250);
-  }
-  function chooseLanguage(value){
-    current=normalize(value);
-    setDirection(current);
-    try{
-      localStorage.setItem("site-language",current);
-      localStorage.setItem("ward4-page-language",current);
-    }catch(error){}
-    lockSelectors();
-    translateWithGoogle(current);
-  }
-  // Restore Bengali source strings before the single translation engine runs.
-  restoreSourceText();
-  try{current=normalize(localStorage.getItem("site-language")||localStorage.getItem("ward4-page-language")||"bn");}catch(error){current="bn";}
-  setDirection(current);
-  lockSelectors();
-  // Capture before older page-specific handlers so two language engines cannot race.
-  document.addEventListener("change",function(event){
-    if(event.target&&selectors.indexOf(event.target)>=0){
-      event.stopImmediatePropagation();
-      event.preventDefault();
-      chooseLanguage(event.target.value);
-    }
-  },true);
-  window.googleTranslateElementInit=function(){
-    new google.translate.TranslateElement({
-      pageLanguage:"bn",
-      includedLanguages:"en,ur,ar",
-      autoDisplay:false,
-      multilanguagePage:true
-    },"google_translate_element");
-    translateWithGoogle(current);
+
+  var SUPPORTED = ["bn", "en", "ur", "ar"];
+  var LABELS = {
+    bn: "বাংলা (Bangla)",
+    en: "English",
+    ur: "اردو (Urdu)",
+    ar: "العربية (Arabic)"
   };
-  var script=document.createElement("script");
-  script.src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-  script.async=true;
-  document.head.appendChild(script);
-  // Reassert native option labels if a browser extension or translator mutates them.
-  if(window.MutationObserver){
-    selectors.forEach(function(select){
-      new MutationObserver(function(){lockSelectors();}).observe(select,{childList:true,subtree:true,characterData:true});
+  var selectors = Array.prototype.slice.call(
+    document.querySelectorAll("select#lang, select#language")
+  );
+  var currentLang = "bn";
+  var translationTimer = null;
+  var requestNumber = 0;
+
+  function normalizeLanguage(value) {
+    return SUPPORTED.indexOf(value) !== -1 ? value : "bn";
+  }
+
+  function setDirection(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === "ur" || lang === "ar") ? "rtl" : "ltr";
+    if (document.body) {
+      document.body.classList.toggle("rtl", lang === "ur" || lang === "ar");
+    }
+  }
+
+  function protectLanguageSelectors() {
+    selectors.forEach(function (select) {
+      select.classList.add("notranslate");
+      select.setAttribute("translate", "no");
+      select.setAttribute("aria-label", "Language / ভাষা / زبان / اللغة");
+      Array.prototype.forEach.call(select.options, function (option) {
+        option.classList.add("notranslate");
+        option.setAttribute("translate", "no");
+        var label = LABELS[option.value];
+        if (label) option.textContent = label;
+      });
+      select.value = currentLang;
     });
   }
-  document.querySelectorAll("[data-go-back]").forEach(function(button){
-    button.addEventListener("click",function(){
-      if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){history.back();}
-      else{location.href="/";}
+
+  // Restore Bengali source strings for elements that have an authored data-bn value.
+  function restoreAuthoredSourceText() {
+    document.querySelectorAll("[data-bn]").forEach(function (element) {
+      var source = element.getAttribute("data-bn");
+      if (source === null) return;
+      var textNode = Array.prototype.find.call(element.childNodes, function (node) {
+        return node.nodeType === Node.TEXT_NODE;
+      });
+      if (textNode) {
+        textNode.nodeValue = source;
+      } else if (!element.children.length) {
+        element.textContent = source;
+      }
+    });
+  }
+
+  function dispatchGoogleLanguage(lang, token) {
+    if (token !== requestNumber) return;
+    var combo = document.querySelector(".goog-te-combo");
+    if (!combo) return false;
+
+    // Google Translate's empty value means return to the page's source language (Bengali).
+    combo.value = lang === "bn" ? "" : lang;
+    combo.dispatchEvent(new Event("change", { bubbles: true }));
+    return true;
+  }
+
+  function applyGoogleLanguage(lang) {
+    requestNumber += 1;
+    var token = requestNumber;
+
+    if (translationTimer !== null) {
+      window.clearInterval(translationTimer);
+      translationTimer = null;
+    }
+
+    if (dispatchGoogleLanguage(lang, token)) return;
+
+    var attempts = 0;
+    translationTimer = window.setInterval(function () {
+      if (token !== requestNumber) {
+        window.clearInterval(translationTimer);
+        translationTimer = null;
+        return;
+      }
+      attempts += 1;
+      if (dispatchGoogleLanguage(lang, token) || attempts >= 120) {
+        window.clearInterval(translationTimer);
+        translationTimer = null;
+      }
+    }, 150);
+  }
+
+  // This is the only function allowed to change the active site language.
+  function applyLanguage(lang) {
+    currentLang = normalizeLanguage(lang);
+
+    try {
+      localStorage.setItem("siteLang", currentLang);
+      // Keep legacy keys in sync for older page code and bookmarks.
+      localStorage.setItem("site-language", currentLang);
+      localStorage.setItem("ward4-page-language", currentLang);
+    } catch (error) {}
+
+    setDirection(currentLang);
+    protectLanguageSelectors();
+    applyGoogleLanguage(currentLang);
+  }
+
+  // Read the new value before changing any selector or touching saved state.
+  document.addEventListener("change", function (event) {
+    if (selectors.indexOf(event.target) === -1) return;
+    var selectedLang = normalizeLanguage(event.target.value);
+    event.stopImmediatePropagation();
+    event.preventDefault();
+    applyLanguage(selectedLang);
+  }, true);
+
+  // Keep the native language names intact even if a translation process mutates nearby DOM.
+  if (window.MutationObserver) {
+    selectors.forEach(function (select) {
+      new MutationObserver(protectLanguageSelectors).observe(select, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  document.querySelectorAll("[data-go-back]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (document.referrer && history.length > 1) {
+        try {
+          if (new URL(document.referrer).origin === location.origin) {
+            history.back();
+            return;
+          }
+        } catch (error) {}
+      }
+      location.href = "/";
     });
   });
+
+  // Load the saved canonical state first; migrate older saved keys only if needed.
+  var initialLang = "bn";
+  try {
+    initialLang = localStorage.getItem("siteLang") ||
+      localStorage.getItem("site-language") ||
+      localStorage.getItem("ward4-page-language") ||
+      "bn";
+  } catch (error) {}
+
+  // Older page-specific scripts run earlier in the document. Restore source strings
+  // before initializing the single translation engine used by this controller.
+  restoreAuthoredSourceText();
+  currentLang = normalizeLanguage(initialLang);
+  setDirection(currentLang);
+  protectLanguageSelectors();
+
+  window.googleTranslateElementInit = function () {
+    if (window.__siteTranslateInitialized) return;
+    window.__siteTranslateInitialized = true;
+    new google.translate.TranslateElement({
+      pageLanguage: "bn",
+      includedLanguages: "en,ur,ar",
+      autoDisplay: false,
+      multilanguagePage: true
+    }, "google_translate_element");
+    applyGoogleLanguage(currentLang);
+  };
+
+  var googleScript = document.createElement("script");
+  googleScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  googleScript.async = true;
+  document.head.appendChild(googleScript);
+
+  // Synchronize all selectors and start translation from exactly the same language code.
+  applyLanguage(currentLang);
 })();
-</script></body></html>
+</script>
+</body>
