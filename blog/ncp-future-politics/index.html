@@ -43,7 +43,7 @@
         option.setAttribute("translate","no");
         option.classList.add("notranslate");
         var code=option.value;
-        if(labels[code])option.textContent=labels[code];
+        if(labels[code]&&option.textContent!==labels[code])option.textContent=labels[code];
       });
       select.value=current;
     });
