@@ -72,7 +72,7 @@ footer{background:#071121;color:#bac5d5;text-align:center;padding:24px 12px;font
   document.documentElement.dir=(chosen==="ur"||chosen==="ar")?"rtl":"ltr";
   document.body.classList.toggle("rtl",chosen==="ur"||chosen==="ar");
   document.querySelectorAll("[data-bn]").forEach(el=>{
-   const value=el.(getAttribute("data-"+chosen)||getAttribute("data-bn"));
+   const value=(el.getAttribute("data-"+chosen)||el.getAttribute("data-bn"));
    if(value!==null){
     const node=Array.from(el.childNodes).find(n=>n.nodeType===Node.TEXT_NODE);
     if(node)node.nodeValue=value;
