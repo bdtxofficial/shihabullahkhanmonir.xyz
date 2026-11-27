@@ -561,3 +561,33 @@ html[lang="en"] .heroName{white-space:nowrap;font-size:clamp(30px,4.4vw,58px);le
 .heroRole:lang(ur){
   font-family:"Noto Naskh Arabic",Tahoma,system-ui,sans-serif;
 }
+
+
+/* Stable hero geometry across language switches */
+.heroGrid{align-items:start}
+.heroGrid>.photo{align-self:start}
+.heroIdentity{min-width:0}
+@media(max-width:560px){
+  /* Keep the profile photo at the same vertical coordinate even when
+     translated role labels wrap onto additional lines. */
+  .heroGrid{padding-top:7px;padding-bottom:28px;gap:8px}
+  .heroGrid>div:first-child{
+    min-height:clamp(350px,94vw,390px);
+  }
+  .heroIdentity{padding-top:0}
+  .heroMission{margin-top:0}
+  .heroName{margin-top:0!important}
+  .photo{align-self:center;margin:0 auto 14px!important}
+  .hero:after{
+    left:50%;
+    right:auto;
+    top:auto;
+    bottom:-112px;
+    transform:translateX(-50%);
+    width:300px;
+    height:300px;
+    opacity:1;
+    pointer-events:none;
+  }
+  .heroGrid>.photo{position:relative;z-index:2}
+}
