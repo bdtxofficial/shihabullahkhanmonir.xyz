@@ -45,6 +45,7 @@
   });
 })();
 </script>
-<script id="site-title-localization">(function(){var titles={bn:"শিহাব উল্লাহ-খান মনির | অফিসিয়াল ওয়েবসাইট",en:"Concentration of Power and Accountability | Shihab Ullah-Khan Monir",ur:"شہاب اللہ خان منیر | سرکاری ویب سائٹ",ar:"تركيز السلطة ومسألة المساءلة | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){var l=s.value;document.title=titles[l]||titles.bn;});})();</script>
+
+<script id="site-title-localization">(function(){var titles={"bn":"ক্ষমতার কেন্দ্রিকতা ও জবাবদিহির প্রশ্ন | Shihab Ullah-Khan Monir","en":"Concentration of Power and Accountability | Shihab Ullah-Khan Monir","ur":"تركيز السلطة ومسألة المساءلة | شهاب الله خان منير","ar":"تركيز السلطة ومسألة المساءلة | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){document.title=titles[s.value]||titles.bn;});})();</script>
 </body>
 </html>
