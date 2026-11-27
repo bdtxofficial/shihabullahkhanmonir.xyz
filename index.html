@@ -527,3 +527,37 @@ html[lang="en"] .heroName{white-space:nowrap;font-size:clamp(30px,4.4vw,58px);le
 <script id="site-title-localization">(function(){var titles={"bn":"শিহাব উল্লাহ-খান মনির | Shihab Ullah-Khan Monir — Official Website","en":"Shihab Ullah-Khan Monir | Official Website","ur":"شهاب الله خان منير | الموقع الرسمي","ar":"شهاب الله خان منير | الموقع الرسمي"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){document.title=titles[s.value]||titles.bn;});})();</script>
 </body>
 </html>
+
+
+/* Hero mobile alignment: keep the decorative ring anchored to the profile image
+   regardless of the selected language or the height of the translated text. */
+@media (max-width:560px){
+  .hero{isolation:isolate}
+  .hero:after{
+    right:auto;
+    left:50%;
+    top:auto;
+    bottom:-142px;
+    transform:translateX(-50%);
+    width:340px;
+    height:340px;
+    pointer-events:none;
+  }
+  .heroGrid{padding-bottom:34px}
+  .heroGrid>.photo{
+    position:relative;
+    z-index:2;
+    margin:0 auto 18px;
+  }
+}
+
+/* Keep party-position labels in the previous crisp system font;
+   all other site typography remains unchanged. */
+.heroRoles,
+.heroRole{
+  font-family:system-ui,"Noto Sans Bengali","Noto Naskh Arabic",Tahoma,sans-serif;
+}
+.heroRoles :lang(ur),
+.heroRole :lang(ur){
+  font-family:"Noto Naskh Arabic",Tahoma,system-ui,sans-serif;
+}
