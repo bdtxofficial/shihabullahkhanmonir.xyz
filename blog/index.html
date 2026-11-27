@@ -164,47 +164,47 @@ section{scroll-margin-top:82px}.article-card img{aspect-ratio:16/9;object-fit:co
 
 /* Share published articles, news and gallery media */
 (function(){
-  const lang=()=>({bn:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"লিংক কপি করুন",copied:"লিংক কপি হয়েছে",failed:"লিংক কপি করা যায়নি",native:"শেয়ার করুন"},en:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"Copy link",copied:"Link copied",failed:"Could not copy link",native:"Share"},ur:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"لنک کاپی کریں",copied:"لنک کاپی ہو گیا",failed:"لنک کاپی نہیں ہو سکا",native:"شیئر کریں"},ar:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"نسخ الرابط",copied:"تم نسخ الرابط",failed:"تعذر نسخ الرابط",native:"مشاركة"}}[document.documentElement.lang]||{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"Copy link",copied:"Link copied",failed:"Could not copy link",native:"Share"});
-  const absolute=(value)=>{try{return new URL(value,location.href).href}catch(e){return location.href}};
+  const labels=()=>({bn:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"লিংক কপি করুন",copied:"লিংক কপি হয়েছে",failed:"লিংক কপি করা যায়নি",native:"শেয়ার করুন"},en:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"Copy link",copied:"Link copied",failed:"Could not copy link",native:"Share"},ur:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"لنک کاپی کریں",copied:"لنک کاپی ہو گیا",failed:"لنک کاپی نہیں ہو سکا",native:"شیئر کریں"},ar:{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"نسخ الرابط",copied:"تم نسخ الرابط",failed:"تعذر نسخ الرابط",native:"مشاركة"}}[document.documentElement.lang]||{fb:"Facebook",wa:"WhatsApp",x:"X",copy:"Copy link",copied:"Link copied",failed:"Could not copy link",native:"Share"});
+  const absolute=value=>{try{return new URL(value,location.href).href}catch(e){return location.href}};
   const pageUrl=absolute(document.querySelector('link[rel="canonical"]')?.href||location.href);
   const pageTitle=document.querySelector('meta[property="og:title"]')?.content||document.title;
   function makeToolbar(title,url,kind){
-    const t=lang(),u=absolute(url),label=title||pageTitle;
+    const u=absolute(url),label=title||pageTitle,t=labels();
     const box=document.createElement("div");box.className="share-tools";box.setAttribute("aria-label","Share this content");
-    const link=(text,href,cls)=>{const a=document.createElement("a");a.textContent=text;a.href=href;a.target="_blank";a.rel="noopener noreferrer";if(cls)a.className=cls;return a};
-    const fb=link(t.fb,"https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(u));
-    const wa=link(t.wa,"https://api.whatsapp.com/send?text="+encodeURIComponent(label+" "+u));
-    const x=link(t.x,"https://twitter.com/intent/tweet?text="+encodeURIComponent(label)+"&url="+encodeURIComponent(u));
-    const copy=document.createElement("button");copy.type="button";copy.className="share-copy";copy.textContent=t.copy;
+    const link=(key,href)=>{const a=document.createElement("a");a.dataset.shareLabel=key;a.textContent=t[key];a.href=href;a.target="_blank";a.rel="noopener noreferrer";return a};
+    const fb=link("fb","https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(u));
+    const wa=link("wa","https://api.whatsapp.com/send?text="+encodeURIComponent(label+" "+u));
+    const x=link("x","https://twitter.com/intent/tweet?text="+encodeURIComponent(label)+"&url="+encodeURIComponent(u));
+    const copy=document.createElement("button");copy.type="button";copy.className="share-copy";copy.dataset.shareLabel="copy";copy.textContent=t.copy;
+    const status=document.createElement("span");status.className="share-status";status.setAttribute("role","status");status.setAttribute("aria-live","polite");
     copy.addEventListener("click",async()=>{
       let ok=false;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(u);ok=true}}catch(e){}
       if(!ok){try{const field=document.createElement("textarea");field.value=u;field.setAttribute("readonly","");field.style.position="fixed";field.style.opacity="0";document.body.appendChild(field);field.select();ok=document.execCommand("copy");field.remove()}catch(e){}}
-      status.textContent=ok?t.copied:t.failed;
+      status.textContent=ok?labels().copied:labels().failed;
     });
     box.append(fb,wa,x,copy);
-    if(navigator.share){const native=document.createElement("button");native.type="button";native.className="share-native";native.textContent=t.native;native.addEventListener("click",async()=>{try{await navigator.share({title:label,text:label,url:u})}catch(e){}});box.append(native)}
-    const status=document.createElement("span");status.className="share-status";status.setAttribute("role","status");status.setAttribute("aria-live","polite");box.append(status);
-    box.dataset.shareKind=kind||"page";return box;
+    if(navigator.share){const native=document.createElement("button");native.type="button";native.className="share-native";native.dataset.shareLabel="native";native.textContent=t.native;native.addEventListener("click",async()=>{try{await navigator.share({title:label,text:label,url:u})}catch(e){}});box.append(native)}
+    box.append(status);box.dataset.shareKind=kind||"page";return box;
   }
-  document.querySelectorAll(".article-card,.home-article-card").forEach(card=>{
+  document.querySelectorAll(".article-card").forEach(card=>{
     if(card.querySelector(".share-tools"))return;
-    const target=card.querySelector('h2 a[href],h3 a[href],a[href]');
-    if(!target)return;
-    const heading=card.querySelector("h2,h3");
-    const title=heading?.textContent?.trim()||target.textContent.trim()||pageTitle;
+    const target=card.querySelector('h2 a[href],h3 a[href],a[href]');if(!target)return;
+    const title=card.querySelector("h2,h3")?.textContent?.trim()||target.textContent.trim()||pageTitle;
     card.append(makeToolbar(title,target.href,"article"));
+  });
+  document.querySelectorAll(".home-article-card").forEach(card=>{
+    if(card.nextElementSibling?.classList.contains("share-tools"))return;
+    const title=card.querySelector("strong")?.textContent?.trim()||card.textContent.trim()||pageTitle;
+    card.insertAdjacentElement("afterend",makeToolbar(title,card.href,"article"));
   });
   document.querySelectorAll("article.article,.article").forEach(article=>{
     if(article.querySelector(".share-tools"))return;
-    const heading=article.querySelector("h1");
-    if(!heading)return;
-    const bar=makeToolbar(pageTitle,pageUrl,"article");
-    heading.insertAdjacentElement("afterend",bar);
+    const heading=article.querySelector("h1");if(!heading)return;
+    heading.insertAdjacentElement("afterend",makeToolbar(pageTitle,pageUrl,"article"));
   });
   document.querySelectorAll(".galleryItem").forEach(item=>{
     if(item.querySelector(".share-tools"))return;
-    const img=item.querySelector("img");
-    const video=item.querySelector("video");
+    const img=item.querySelector("img"),video=item.querySelector("video");
     const mediaUrl=img?.currentSrc||img?.src||video?.currentSrc||video?.src||pageUrl;
     const caption=item.querySelector("figcaption")?.textContent?.trim()||img?.alt||video?.title||pageTitle;
     item.append(makeToolbar(caption,mediaUrl,"media"));
@@ -215,6 +215,8 @@ section{scroll-margin-top:82px}.article-card img{aspect-ratio:16/9;object-fit:co
     const mediaUrl=video.currentSrc||video.src||video.querySelector("source")?.src||pageUrl;
     parent.append(makeToolbar(video.getAttribute("aria-label")||video.title||pageTitle,mediaUrl,"video"));
   });
+  const refreshLabels=()=>document.querySelectorAll(".share-tools [data-share-label]").forEach(el=>{const key=el.dataset.shareLabel;el.textContent=labels()[key]||key});
+  new MutationObserver(refreshLabels).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
 })();
 
 </script>
