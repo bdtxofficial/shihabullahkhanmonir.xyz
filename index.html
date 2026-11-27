@@ -187,6 +187,21 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
 .page-backbar{width:min(1180px,calc(100% - 32px));margin:18px auto 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:relative;z-index:2}.page-backbar a,.page-backbar button{appearance:none;border:1px solid rgba(190,150,75,.48);border-radius:999px;padding:11px 19px;display:inline-flex;align-items:center;gap:9px;text-decoration:none;font:600 14px/1.2 inherit;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}.page-back-home{color:#fff!important;background:linear-gradient(135deg,#142b49,#203e61);box-shadow:0 7px 22px rgba(9,25,45,.18)}.page-back-previous{color:#18324f!important;background:linear-gradient(135deg,#fff,#f7f1e6)}.page-backbar a:hover,.page-backbar button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(9,25,45,.2)}.page-backbar .back-icon{font-size:18px;line-height:1}#google_translate_element{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}.goog-te-banner-frame,.skiptranslate iframe{display:none!important}body{top:0!important}@media(max-width:600px){.page-backbar{width:calc(100% - 24px);margin:13px auto 18px;gap:8px}.page-backbar a,.page-backbar button{padding:10px 14px;font-size:13px}}
 
 .home-article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}.home-article-card{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid rgba(190,150,75,.28);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(248,245,238,.96));text-decoration:none;color:#172b45;box-shadow:0 8px 24px rgba(18,35,56,.06);transition:transform .2s,box-shadow .2s}.home-article-card:hover{transform:translateY(-3px);box-shadow:0 13px 30px rgba(18,35,56,.12)}.home-article-card>span:first-child{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9b773b}.home-article-card strong{font-size:16px;line-height:1.55}.home-article-card>span:last-child{margin-top:auto;color:#9b773b;font-size:13px;font-weight:700}@media(max-width:800px){.home-article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){.home-article-grid{grid-template-columns:1fr}}
+/* Donation polish and English single-line hero name */
+.donationOptions{gap:14px 18px}
+.donationOption{flex-basis:88px;gap:7px}
+.donationLogo{width:68px;height:68px;flex-basis:68px;border-radius:19px;overflow:hidden;border:1px solid #ffffff55;box-shadow:0 7px 18px #10254422,inset 0 1px 0 #ffffff35}
+.donationLogo svg{width:58px;height:42px;max-width:calc(100% - 8px);max-height:calc(100% - 10px);display:block;overflow:visible;filter:drop-shadow(0 1px 1px #0002)}
+.donationLabel{font-size:12px;line-height:1.35;white-space:normal;overflow-wrap:anywhere;text-align:center}
+html[lang="en"] .heroName{white-space:nowrap;overflow-wrap:normal;word-break:keep-all;text-wrap:nowrap;font-size:clamp(30px,4.4vw,54px);letter-spacing:-.05em;line-height:1.15}
+@media(max-width:560px){
+  .donationOptions{gap:11px 9px;max-width:370px}
+  .donationOption{flex-basis:82px;gap:5px}
+  .donationLogo{width:58px;height:58px;flex-basis:58px;border-radius:16px}
+  .donationLogo svg{width:50px;height:36px;max-width:calc(100% - 6px)}
+  .donationLabel{font-size:10px;line-height:1.3}
+  html[lang="en"] .heroName{font-size:clamp(19px,6.1vw,32px);letter-spacing:-.055em;line-height:1.16}
+}
 </style>
 <meta property="og:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp"><meta property="og:image:alt" content="Shihab Ullah-Khan Monir"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp">
 </head>
@@ -387,12 +402,40 @@ section{padding:76px 0}.head{text-align:center;max-width:760px;margin:0 auto 38p
       const type=option.dataset.type;
       const copied=await copyText(number);
       const lang=language();
+      const provider=option.dataset.provider;
+      const messageKey=provider+"_"+type;
       const messages={
-        bn:{merchant:"নম্বর কপি হয়েছে — পেমেন্ট করুন",personal:"নম্বর কপি হয়েছে — সেন্ড মানি করুন",failed:"নম্বরটি কপি করা যায়নি — নিজে কপি করুন"},
-        en:{merchant:"Number copied — please make a Payment",personal:"Number copied — please Send Money",failed:"Could not copy automatically — please copy manually"},
-        ur:{merchant:"نمبر کاپی ہو گیا — براہِ کرم ادائیگی کریں",personal:"نمبر کاپی ہو گیا — براہِ کرم Send Money کریں",failed:"نمبر خودکار طور پر کاپی نہیں ہو سکا — براہِ کرم خود کاپی کریں"}
+        bn:{
+          bkash_merchant:"বিকাশ মার্চেন্ট নাম্বার কপি হয়েছে, পেমেন্ট করুন।",
+          bkash_personal:"বিকাশ পার্সোনাল নাম্বার কপি হয়েছে, সেন্ড মানি করুন।",
+          nagad_personal:"নগদ পার্সোনাল নাম্বার কপি হয়েছে, সেন্ড মানি করুন।",
+          rocket_personal:"রকেট পার্সোনাল নাম্বার কপি হয়েছে, সেন্ড মানি করুন।",
+          failed:"নাম্বার কপি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+        },
+        en:{
+          bkash_merchant:"bKash Merchant number copied. Please make a payment.",
+          bkash_personal:"bKash Personal number copied. Please send money.",
+          nagad_personal:"Nagad Personal number copied. Please send money.",
+          rocket_personal:"Rocket Personal number copied. Please send money.",
+          failed:"Could not copy the number. Please try again."
+        },
+        ur:{
+          bkash_merchant:"بکاش مرچنٹ نمبر کاپی ہو گیا ہے، براہِ کرم ادائیگی کریں۔",
+          bkash_personal:"بکاش پرسنل نمبر کاپی ہو گیا ہے، براہِ کرم رقم بھیجیں۔",
+          nagad_personal:"نگد پرسنل نمبر کاپی ہو گیا ہے، براہِ کرم رقم بھیجیں۔",
+          rocket_personal:"راکٹ پرسنل نمبر کاپی ہو گیا ہے، براہِ کرم رقم بھیجیں۔",
+          failed:"نمبر کاپی نہیں ہو سکا۔ براہِ کرم دوبارہ کوشش کریں۔"
+        },
+        ar:{
+          bkash_merchant:"تم نسخ رقم التاجر bKash. يُرجى إتمام الدفع.",
+          bkash_personal:"تم نسخ رقم bKash الشخصي. يُرجى إرسال الأموال.",
+          nagad_personal:"تم نسخ رقم Nagad الشخصي. يُرجى إرسال الأموال.",
+          rocket_personal:"تم نسخ رقم Rocket الشخصي. يُرجى إرسال الأموال.",
+          failed:"تعذّر نسخ الرقم. يُرجى المحاولة مرة أخرى."
+        }
       };
-      message.textContent=copied?(messages[lang][type==="merchant"?"merchant":"personal"]):(messages[lang].failed);
+      const languageMessages=messages[lang]||messages.bn;
+      message.textContent=copied?(languageMessages[messageKey]||languageMessages.failed):languageMessages.failed;
       numberOutput.textContent=number;
       notice.hidden=false;
       clearTimeout(noticeTimer);
