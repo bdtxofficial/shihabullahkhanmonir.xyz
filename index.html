@@ -299,6 +299,16 @@ html[lang="en"] .heroName{white-space:nowrap;font-size:clamp(30px,4.4vw,58px);le
     opacity:1!important;
   }
 }
+
+/* Urdu-only mobile hero spacing adjustment; other languages remain unchanged. */
+@media(max-width:560px){
+  html[lang="ur"] .heroIdentity{
+    transform:translateY(-14px);
+  }
+  html[lang="ur"] .hero:after{
+    bottom:-82px;
+  }
+}
 </style>
 <meta property="og:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp"><meta property="og:image:alt" content="Shihab Ullah-Khan Monir"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp">
 </head>
