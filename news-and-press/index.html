@@ -43,4 +43,30 @@ window.googleTranslateElementInit=function(){if(window.__siteTranslateInitialize
 var script=document.createElement("script");script.src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";script.async=true;document.head.appendChild(script);
 })();
 </script>
+
+<script id="reliable-go-back">
+(function(){
+  "use strict";
+  var backButton=document.querySelector("[data-go-back]");
+  if(!backButton)return;
+  var homeUrl="https://shihabullahkhanmonir.xyz/";
+  backButton.addEventListener("click",function(){
+    var sameDomainReferrer=false;
+    try{
+      if(document.referrer){
+        sameDomainReferrer=new URL(document.referrer).hostname===window.location.hostname;
+      }
+    }catch(error){}
+    if(window.history.length>1&&sameDomainReferrer){
+      var currentUrl=window.location.href;
+      window.history.back();
+      window.setTimeout(function(){
+        if(window.location.href===currentUrl){window.location.replace(homeUrl);}
+      },800);
+    }else{
+      window.location.assign(homeUrl);
+    }
+  });
+})();
+</script>
 </body>
