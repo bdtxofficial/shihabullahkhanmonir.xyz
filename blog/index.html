@@ -79,6 +79,7 @@ main{padding:46px 0 70px}.intro{background:white;border:1px solid var(--line);bo
   });
 })();
 </script>
-<script id="site-title-localization">(function(){var titles={bn:"মতামত ও নিবন্ধ | শিহাব উল্লাহ-খান মনির",en:"Opinions & Articles | Shihab Ullah-Khan Monir",ur:"شہاب اللہ خان منیر | سرکاری ویب سائٹ",ar:"الآراء والمقالات | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){var l=s.value;document.title=titles[l]||titles.bn;});})();</script>
+
+<script id="site-title-localization">(function(){var titles={"bn":"মতামত ও নিবন্ধ | Shihab Ullah-Khan Monir","en":"Opinions & Articles | Shihab Ullah-Khan Monir","ur":"الآراء والمقالات | شهاب الله خان منير","ar":"الآراء والمقالات | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){document.title=titles[s.value]||titles.bn;});})();</script>
 </body>
 </html>
