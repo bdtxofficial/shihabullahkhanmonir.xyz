@@ -463,6 +463,7 @@ html[lang="en"] .heroName{white-space:nowrap;overflow-wrap:normal;word-break:kee
   });
 })();
 </script>
-<script id="site-title-localization">(function(){var titles={bn:"শিহাব উল্লাহ-খান মনির | অফিসিয়াল ওয়েবসাইট",en:"Shihab Ullah-Khan Monir | Official Website",ur:"شہاب اللہ خان منیر | سرکاری ویب سائٹ",ar:"شهاب الله خان منير | الموقع الرسمي"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){var l=s.value;document.title=titles[l]||titles.bn;});})();</script>
+
+<script id="site-title-localization">(function(){var titles={"bn":"শিহাব উল্লাহ-খান মনির | Shihab Ullah-Khan Monir — Official Website","en":"Shihab Ullah-Khan Monir | Official Website","ur":"شهاب الله خان منير | الموقع الرسمي","ar":"شهاب الله خان منير | الموقع الرسمي"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){document.title=titles[s.value]||titles.bn;});})();</script>
 </body>
 </html>
