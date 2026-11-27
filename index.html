@@ -277,6 +277,10 @@ section{scroll-margin-top:82px}.article-card img{aspect-ratio:16/9;object-fit:co
 @media(max-width:420px){.wrap{width:calc(100% - 28px)}.heroActions{align-items:stretch}.heroActions .btn{flex:1 1 100%;text-align:center}.facts{grid-template-columns:1fr}.contact{gap:12px}.socialCard{padding:13px;gap:11px}.item{padding:14px 13px}.number{flex-basis:32px;width:32px;height:32px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
 
+
+/* Keep the English display name on one line without affecting other languages */
+html[lang="en"] .heroName{white-space:nowrap;font-size:clamp(30px,4.4vw,58px);letter-spacing:-.045em}
+@media(max-width:560px){html[lang="en"] .heroName{font-size:clamp(19px,6.2vw,28px);letter-spacing:-.04em}}
 </style>
 <meta property="og:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp"><meta property="og:image:alt" content="Shihab Ullah-Khan Monir"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp">
 </head>
