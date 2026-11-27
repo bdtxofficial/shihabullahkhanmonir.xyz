@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <script id="site-language-bootstrap">
-(function(){try{var a=["bn","en","ur","ar"];var l=localStorage.getItem("siteLang")||localStorage.getItem("site-language")||localStorage.getItem("ward4-page-language")||"bn";if(a.indexOf(l)<0)l="bn";document.documentElement.lang=l;document.documentElement.dir=(l==="ar"||l==="ur")?"rtl":"ltr";document.documentElement.setAttribute("data-site-lang",l);var v=l==="bn"?"/bn/bn":"/bn/"+l;document.cookie="googtrans="+v+";path=/;SameSite=Lax";document.cookie="googtrans="+v+";path=/;domain=shihabullahkhanmonir.xyz;SameSite=Lax";}catch(e){}})();
+(function(){try{var l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||"bn";if(["bn","en","ur","ar"].indexOf(l)<0)l="bn";document.documentElement.lang=l;document.documentElement.dir=(l==="ar"||l==="ur")?"rtl":"ltr";document.documentElement.setAttribute("data-site-lang",l);}catch(e){}})();
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -38,7 +38,7 @@ main{padding:46px 0 70px}.intro{background:white;border:1px solid var(--line);bo
 
 .articles{margin:34px 0}.section-title{font-size:25px;color:var(--navy);margin:0 0 17px}.article-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.article-card{background:white;border:1px solid var(--line);border-radius:13px;padding:21px;display:flex;flex-direction:column;min-height:190px}.article-category{font-size:12px;color:#805b20;font-weight:800}.article-card h3{font-size:19px;line-height:1.55;color:var(--navy);margin:9px 0 18px}.read-more{margin-top:auto;color:#805b20;font-weight:800;font-size:14px}.article-card a:hover{text-decoration:underline}.empty{display:none}@media(max-width:700px){.article-grid{grid-template-columns:1fr}}
 .lang{cursor:pointer;background:#0b1830;color:#fff;border:1px solid #ffffff66;border-radius:7px;padding:7px 11px;font:inherit}.lang option{background:#0b1830;color:#fff}
-.page-backbar{width:min(1180px,calc(100% - 32px));margin:18px auto 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:relative;z-index:2}.page-backbar a,.page-backbar button{appearance:none;border:1px solid rgba(190,150,75,.48);border-radius:999px;padding:11px 19px;display:inline-flex;align-items:center;gap:9px;text-decoration:none;font:600 14px/1.2 inherit;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}.page-back-home{color:#fff!important;background:linear-gradient(135deg,#142b49,#203e61);box-shadow:0 7px 22px rgba(9,25,45,.18)}.page-back-previous{color:#18324f!important;background:linear-gradient(135deg,#fff,#f7f1e6)}.page-backbar a:hover,.page-backbar button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(9,25,45,.2)}.page-backbar .back-icon{font-size:18px;line-height:1}#google_translate_element{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}.goog-te-banner-frame,.skiptranslate iframe{display:none!important}body{top:0!important}@media(max-width:600px){.page-backbar{width:calc(100% - 24px);margin:13px auto 18px;gap:8px}.page-backbar a,.page-backbar button{padding:10px 14px;font-size:13px}}
+.page-backbar{width:min(1180px,calc(100% - 32px));margin:18px auto 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:relative;z-index:2}.page-backbar a,.page-backbar button{appearance:none;border:1px solid rgba(190,150,75,.48);border-radius:999px;padding:11px 19px;display:inline-flex;align-items:center;gap:9px;text-decoration:none;font:600 14px/1.2 inherit;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}.page-back-home{color:#fff!important;background:linear-gradient(135deg,#142b49,#203e61);box-shadow:0 7px 22px rgba(9,25,45,.18)}.page-back-previous{color:#18324f!important;background:linear-gradient(135deg,#fff,#f7f1e6)}.page-backbar a:hover,.page-backbar button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(9,25,45,.2)}.page-backbar .back-icon{font-size:18px;line-height:1}@media(max-width:600px){.page-backbar{width:calc(100% - 24px);margin:13px auto 18px;gap:8px}.page-backbar a,.page-backbar button{padding:10px 14px;font-size:13px}}
 </style>
 </head>
 <body>
@@ -52,24 +52,7 @@ main{padding:46px 0 70px}.intro{background:white;border:1px solid var(--line);bo
 <script>
 (()=>{const button=document.getElementById("lang");let language="bn";function setLanguage(next){language=["bn","en","ur","ar"].includes(next)?next:"bn";document.documentElement.lang=language;document.documentElement.dir=(language==="ur"||language==="ar")?"rtl":"ltr";document.body.classList.toggle("rtl",language==="ur"||language==="ar");document.querySelectorAll("[data-bn]").forEach(el=>{el.textContent=(el.getAttribute("data-"+language)||el.getAttribute("data-bn"))});button.value=language;try{localStorage.setItem("site-language",language)}catch(e){}}button.addEventListener("change",()=>setLanguage(button.value));let saved="bn";try{saved=localStorage.getItem("site-language")||"bn"}catch(e){}setLanguage(saved);})();
 </script>
-<div id="google_translate_element" aria-hidden="true"></div>
-<script>
-(function(){
-"use strict";
-var allowed=["bn","en","ur","ar"],labels={bn:"বাংলা (Bangla)",en:"English",ur:"اردو (Urdu)",ar:"العربية (Arabic)"};
-var selects=Array.prototype.slice.call(document.querySelectorAll("select#lang,select#language"));
-function valid(v){return allowed.indexOf(v)!==-1?v:"bn";}
-function cookie(lang){var v=lang==="bn"?"/bn/bn":"/bn/"+lang;document.cookie="googtrans="+v+";path=/;SameSite=Lax";document.cookie="googtrans="+v+";path=/;domain=shihabullahkhanmonir.xyz;SameSite=Lax";}
-function direction(lang){document.documentElement.lang=lang;document.documentElement.dir=(lang==="ar"||lang==="ur")?"rtl":"ltr";document.documentElement.setAttribute("data-site-lang",lang);if(document.body)document.body.classList.toggle("rtl",lang==="ar"||lang==="ur");}
-function sync(lang){selects.forEach(function(s){s.classList.add("notranslate");s.setAttribute("translate","no");Array.prototype.forEach.call(s.options,function(o){o.classList.add("notranslate");o.setAttribute("translate","no");if(labels[o.value]&&o.textContent!==labels[o.value])o.textContent=labels[o.value];});s.value=lang;});}
-function applyLanguage(lang){lang=valid(lang);try{localStorage.setItem("siteLang",lang);localStorage.setItem("site-language",lang);localStorage.setItem("ward4-page-language",lang);}catch(e){}direction(lang);sync(lang);cookie(lang);window.location.reload();}
-document.addEventListener("change",function(e){if(selects.indexOf(e.target)===-1)return;var lang=valid(e.target.value);e.preventDefault();e.stopImmediatePropagation();applyLanguage(lang);},true);
-var saved="bn";try{saved=valid(localStorage.getItem("siteLang")||localStorage.getItem("site-language")||localStorage.getItem("ward4-page-language")||"bn");}catch(e){}
-direction(saved);sync(saved);cookie(saved);
-window.googleTranslateElementInit=function(){if(window.__siteTranslateInitialized)return;window.__siteTranslateInitialized=true;new google.translate.TranslateElement({pageLanguage:"bn",includedLanguages:"en,ur,ar",autoDisplay:false,multilanguagePage:true},"google_translate_element");};
-var script=document.createElement("script");script.src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";script.async=true;document.head.appendChild(script);
-})();
-</script>
+
 
 <script id="reliable-go-back">
 (function(){
