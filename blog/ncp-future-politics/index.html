@@ -44,5 +44,6 @@
   });
 })();
 </script>
+<script id="site-title-localization">(function(){var titles={bn:"শিহাব উল্লাহ-খান মনির | অফিসিয়াল ওয়েবসাইট",en:"The NCP’s Political Future | Shihab Ullah-Khan Monir",ur:"شہاب اللہ خان منیر | سرکاری ویب سائٹ",ar:"المستقبل السياسي لحزب المواطنين الوطني | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){var l=s.value;document.title=titles[l]||titles.bn;});})();</script>
 </body>
 </html>
