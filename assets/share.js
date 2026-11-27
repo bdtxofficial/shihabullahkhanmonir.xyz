@@ -44,7 +44,7 @@
   }
   function addCardShares(){
     var cards=new Set();
-    document.querySelectorAll(".article-card,.home-article-card,.newsFeature").forEach(function(card){cards.add(card);});
+    document.querySelectorAll(".article-card,.newsFeature").forEach(function(card){cards.add(card);});
     cards.forEach(function(card){
       if(card.querySelector(":scope > .shareBar,.shareBar"))return;
       var link=card.querySelector('h2 a[href],h3 a[href],a.newsFeatureLink[href],a[href*="/blog/"],a[href*="/news-and-press/"]');
