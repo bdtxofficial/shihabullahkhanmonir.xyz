@@ -57,10 +57,11 @@
   }
   function addGalleryShares(){
     var index=0;
-    document.querySelectorAll(".galleryItem").forEach(function(item){
+    document.querySelectorAll("figure").forEach(function(item){
       if(item.querySelector(".shareBar"))return;
-      index++;if(!item.id)item.id="media-"+index;
       var caption=item.querySelector("figcaption");var img=item.querySelector("img");var video=item.querySelector("video");
+      if(!img&&!video)return;
+      index++;if(!item.id)item.id="media-"+index;
       var title=caption?(caption.getAttribute("data-"+language())||caption.textContent.trim()):(img?(img.alt||"Photo"): "Video");
       var url=pageUrl().split("#")[0]+"#"+item.id;
       var bar=makeBar(title,url,"media");
