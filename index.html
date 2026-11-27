@@ -281,6 +281,24 @@ section{scroll-margin-top:82px}.article-card img{aspect-ratio:16/9;object-fit:co
 /* Keep the English display name on one line without affecting other languages */
 html[lang="en"] .heroName{white-space:nowrap;font-size:clamp(30px,4.4vw,58px);letter-spacing:-.045em}
 @media(max-width:560px){html[lang="en"] .heroName{font-size:clamp(19px,6.2vw,28px);letter-spacing:-.04em}}
+
+/* Mobile first-screen spacing and profile accent positioning */
+@media(max-width:560px){
+  .heroGrid{padding-top:24px!important;padding-bottom:28px!important;gap:8px!important}
+  .heroIdentity{padding-top:0!important}
+  .heroMission{margin-bottom:6px!important}
+  .heroName{margin-top:-7px!important}
+  .hero:after{
+    left:50%!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:-48px!important;
+    transform:translateX(-50%)!important;
+    width:300px!important;
+    height:300px!important;
+    opacity:1!important;
+  }
+}
 </style>
 <meta property="og:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp"><meta property="og:image:alt" content="Shihab Ullah-Khan Monir"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://i.ibb.co.com/jk6SGzb1/1bab89fd2b944e85a7464611a137924f-1.webp">
 </head>
