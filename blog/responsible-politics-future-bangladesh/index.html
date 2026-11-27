@@ -44,6 +44,7 @@
   });
 })();
 </script>
-<script id="site-title-localization">(function(){var titles={bn:"শিহাব উল্লাহ-খান মনির | অফিসিয়াল ওয়েবসাইট",en:"Responsible Politics and the Bangladesh of Tomorrow | Shihab Ullah-Khan Monir",ur:"شہاب اللہ خان منیر | سرکاری ویب سائٹ",ar:"سياسة مسؤولة وبنغلاديش الغد | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){var l=s.value;document.title=titles[l]||titles.bn;});})();</script>
+
+<script id="site-title-localization">(function(){var titles={"bn":"দায়িত্বশীল রাজনীতি ও আগামীর বাংলাদেশ | Shihab Ullah-Khan Monir","en":"Responsible Politics and the Bangladesh of Tomorrow | Shihab Ullah-Khan Monir","ur":"سياسة مسؤولة وبنغلاديش الغد | شهاب الله خان منير","ar":"سياسة مسؤولة وبنغلاديش الغد | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){document.title=titles[s.value]||titles.bn;});})();</script>
 </body>
 </html>
