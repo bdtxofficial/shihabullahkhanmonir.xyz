@@ -84,10 +84,10 @@ footer{background:#071121;color:#bac5d5;text-align:center;padding:24px 12px;font
    }
   });
   select.value=chosen;
-  try{localStorage.setItem("ward4-page-language",chosen);localStorage.setItem("site-language",chosen)}catch(e){}
+  try{localStorage.setItem("site-language",chosen)}catch(e){}
  }
  let initial="bn";
- try{initial=localStorage.getItem("site-language")||localStorage.getItem("ward4-page-language")||"bn"}catch(e){}
+ try{initial=localStorage.getItem("site-language")||"bn"}catch(e){}
  applyLanguage(initial);
  select.addEventListener("change",()=>applyLanguage(select.value));
 })();
