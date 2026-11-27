@@ -44,6 +44,7 @@
   });
 })();
 </script>
-<script id="site-title-localization">(function(){var titles={bn:"শিহাব উল্লাহ-খান মনির | অফিসিয়াল ওয়েবসাইট",en:"A New Politics in a Time of Change | Shihab Ullah-Khan Monir",ur:"شہاب اللہ خان منیر | سرکاری ویب سائٹ",ar:"البحث عن سياسة جديدة في زمن التغيير | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){var l=s.value;document.title=titles[l]||titles.bn;});})();</script>
+
+<script id="site-title-localization">(function(){var titles={"bn":"পরিবর্তনের সময়ে নতুন রাজনীতি | Shihab Ullah-Khan Monir","en":"A New Politics in a Time of Change | Shihab Ullah-Khan Monir","ur":"البحث عن سياسة جديدة في زمن التغيير | شهاب الله خان منير","ar":"البحث عن سياسة جديدة في زمن التغيير | شهاب الله خان منير"};var s=document.querySelector("select#lang,select#language");function apply(){var l=(s&&s.value)||"bn";try{l=localStorage.getItem("site-language")||localStorage.getItem("siteLang")||l;}catch(e){}document.title=titles[l]||titles.bn;}apply();if(s)s.addEventListener("change",function(){document.title=titles[s.value]||titles.bn;});})();</script>
 </body>
 </html>
