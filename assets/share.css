@@ -1,0 +1,18 @@
+/* Social sharing controls — navy and gold site theme */
+.shareBar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px;padding:10px 12px;border:1px solid #e4e8ef;border-radius:12px;background:#f8f9fc;direction:ltr}
+.shareBar[data-share-kind="media"]{margin:10px 0 2px;padding:8px 10px;gap:7px}
+.shareLabel{flex:0 0 100%;color:#5d687a;font:600 12px/1.4 system-ui,-apple-system,sans-serif;letter-spacing:.02em}
+.shareAction{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:7px 11px;border:1px solid #dce2eb;border-radius:8px;background:#fff;color:#142b4a;font:600 12px/1.2 system-ui,-apple-system,sans-serif;text-decoration:none;cursor:pointer;transition:background .16s ease,border-color .16s ease,transform .16s ease}
+.shareAction:hover{background:#fff8e8;border-color:#d8b66e;transform:translateY(-1px)}
+.shareAction:focus-visible{outline:3px solid #d8b66e;outline-offset:2px}
+.shareAction.facebook{border-color:#d8e2f5;color:#2456a6}
+.shareAction.whatsapp{border-color:#cce9d7;color:#087c54}
+.shareAction.xshare{border-color:#d8dde5;color:#18243a}
+.shareAction.copy{border-color:#d8b66e;background:#0b1830;color:#fff}
+.shareAction.native{border-color:#d8b66e;color:#805b20}
+.shareToast{position:fixed;z-index:9999;left:50%;bottom:24px;transform:translate(-50%,12px);max-width:min(90vw,420px);padding:11px 16px;border:1px solid #d8b66e;border-radius:10px;background:#0b1830;color:#fff;box-shadow:0 10px 30px #07112135;font:600 13px/1.45 system-ui,-apple-system,sans-serif;text-align:center;opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.shareToast.is-visible{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.galleryItem .shareBar{width:100%}
+.rtl .shareBar{direction:ltr;text-align:left}
+@media(max-width:560px){.shareBar{gap:7px;padding:9px}.shareAction{flex:1 1 auto;min-height:36px;padding:8px 9px;font-size:11px}.shareLabel{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.shareAction,.shareToast{transition:none}}
